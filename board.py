@@ -6,6 +6,7 @@ class Board:
         self.screen = screen
         self.difficulty = difficulty
         #variables
+        #change
 
         pass
     def draw(self):
