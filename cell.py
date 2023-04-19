@@ -13,3 +13,5 @@ class Cell:
 
     def set_sketched_value(self, value):
         self.sketch = value
+
+    def draw(self):
