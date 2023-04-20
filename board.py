@@ -1,19 +1,24 @@
 import pygame
+from cell import Cell
 class Board:
     def __init__(self, width, height, screen, difficulty):
         self.width = width
         self.height = height
         self.screen = screen
         self.difficulty = difficulty
-        #variables
-        #change
-        #testing fork
+        # need to adjust to place the correct number value in the cell
+        self.grid = [[Cell(0, row, col, screen) for col in range(9)] for row in range(9)]
+        self.selected_row = None
+        self.selected_col = None
 
-        pass
     def draw(self):
-        # I think this may need more detail
-        for row in self.grid:
-            for cell in row:
+        # Draw the background of the board
+        self.screen.fill((255, 255, 255))
+
+        # Draw the cells in the grid
+        for row in range(9):
+            for col in range(9):
+                cell = self.grid[row][col]
                 cell.draw()
     def select(self, row, col):
         pass
