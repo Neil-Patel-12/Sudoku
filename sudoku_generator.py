@@ -1,4 +1,4 @@
-import math,random
+import math, random
 
 """
 This was adapted from a GeeksforGeeks article "Program for Sudoku Generator" by Aarti_Rathi and Ankur Trisal
@@ -22,7 +22,7 @@ class SudokuGenerator:
 	Return:
 	None
     '''
-    def __init__(self, row_length, removed_cells):
+    def __init__(self, removed_cells, row_length=9):
         self.row_length = row_length
         self.removed_cells = removed_cells
         self.board = [[0 for i in range(self.row_length)] for j in range(self.row_length)]
@@ -71,7 +71,7 @@ class SudokuGenerator:
 	
 	Return: boolean
     '''
-    def valid_in_col(self, col, num):
+    def valid_in_col(self, col, num):   # board[row][col]
         for row in self.board:
             if row[col] == num:
                 return False
