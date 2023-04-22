@@ -36,8 +36,20 @@ class Board:
         row = y // 50
         col = x // 50
         return (row, col)
+
     def clear(self):
-        pass
+        # first checks if a cell is selected. If no cell is selected, it does nothing.
+        if (self.selected_row is not None) and (self.selected_col is not None):
+            cell = self.cells[self.selected_row][self. selected_col]
+            if cell.value == 0 and cell.sketch == 0:
+                return
+            """checks whether it has a value or a sketched value. if yes, value is set
+            to 0 to clear it. if its a sketched value, sketch val is set to 0 to clear"""
+            if cell.value != 0:
+                cell.set_cell_value(0)
+            if cell.sketch != 0:
+                cell.set_cell_value(0)
+
     def sketch(self, value):
         if self.selected:
             self.grid[self.selected[0]][self.selected[1]].sketch = value
