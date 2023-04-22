@@ -1,6 +1,6 @@
 import pygame
 from cell import Cell
-import sudoku_generator
+from sudoku_generator import SudokuGenerator
 class Board:
     def __init__(self, width, height, screen, difficulty):
         self.width = width
@@ -81,8 +81,9 @@ class Board:
                 if self.grid[row][col].value == 0:
                     return (row, col)
         return None
-    def check_board(self):
-        solution = sudoku_generator.SudokuGenerator.get_solution()
+
+    def check_board(self):  # class method holds copy of the solved sudoku for the current round
+        solution = SudokuGenerator.get_solution()  # resets after each generate_sudoku call
         for row in self.grid:
             for cell in row:
                 if cell.sketch != solution[cell.col][cell.row]:
