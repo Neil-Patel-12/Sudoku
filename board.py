@@ -60,7 +60,12 @@ class Board:
                 cell.value = value
                 cell.sketch = None
     def reset_to_original(self):
-        pass
+        for cell in self.cells:
+            if cell.value == 0:
+                cell.sketch == 0
+            else:
+                cell.sketch = cell.value
+
     def is_full(self):
         pass
     def update_board(self):
