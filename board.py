@@ -23,7 +23,7 @@ class Board:
                 cell.draw()
     def select(self, row, col):
         # unselects any previously selected cell
-        if self.selected_row is not None and self.selected_col is not None:
+        if (self.selected_row is not None) and (self.selected_col is not None):
             self.grid[self.selected_row][self.selected_col].selected = False
 
         # select the new cell
@@ -41,7 +41,7 @@ class Board:
     def clear(self):
         # first checks if a cell is selected. If no cell is selected, it does nothing.
         if (self.selected_row is not None) and (self.selected_col is not None):
-            cell = self.grid[self.selected_row][self. selected_col]
+            cell = self.grid[self.selected_row][self.selected_col]
             if cell.value == 0 and cell.sketch == 0:
                 return
             """checks whether it has a value or a sketched value. if yes, value is set
