@@ -61,10 +61,7 @@ class Board:
                 cell.sketch = None
     def reset_to_original(self):
         for cell in self.cells:
-            if cell.value == 0:
-                cell.sketch == 0
-            else:
-                cell.sketch = cell.value
+            cell.sketch = cell.value
 
     def is_full(self):
         pass
