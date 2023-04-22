@@ -21,7 +21,14 @@ class Board:
                 cell = self.grid[row][col]
                 cell.draw()
     def select(self, row, col):
-        pass
+        # unselects any previously selected cell
+        if self.selected_row is not None and self.selected_col is not None:
+            self.cells[self.selected_row][self.selected_col].selected = False
+
+        # select the new cell
+        self.selected_row = row
+        self.selected_col = col
+        self.cells[self.selected_row][self.selected_col].selected = True
 
     def click(self, x, y):
         if x < 0 or y < 0 or x > self.width * 50 or y > self.height * 50:
