@@ -20,6 +20,7 @@ class Board:
             for col in range(9):
                 cell = self.grid[row][col]
                 cell.draw()
+                #
     def select(self, row, col):
         # unselects any previously selected cell
         if self.selected_row is not None and self.selected_col is not None:
