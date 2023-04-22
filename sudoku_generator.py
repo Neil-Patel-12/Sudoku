@@ -21,18 +21,19 @@ class SudokuGenerator:
 	Return:
 	None
     '''
+    solved = None  # Remove_cells will make a copy of solution before clearing
+
+    @classmethod
+    def get_solution(cls):
+        return cls.solved
 
     def __init__(self, removed_cells, row_length=9):
         self.row_length = row_length
         self.removed_cells = removed_cells
         self.board = [[0 for i in range(self.row_length)] for j in range(self.row_length)]
         self.box_length = math.sqrt(row_length)
-        self.solved = None  # Remove_cells will make a copy of solution before clearing
 
 
-
-    def get_solution(self):
-        return self.solved
 
     '''
 	Returns a 2D python list of numbers which represents the board
@@ -210,7 +211,7 @@ class SudokuGenerator:
 	Return: None
     '''
     def remove_cells(self):
-        self.solved_sudoku = self.board[:]
+        SudokuGenerator.solved = self.board[:]
         counter = 0
         while counter < self.removed_cells:
             remove_row = random.randrange(1, 10)
@@ -218,6 +219,7 @@ class SudokuGenerator:
             if self.board[remove_row][remove_col] != 0:
                 self.board[remove_row][remove_col] = 0
                 counter += 1
+
 
 '''
 DO NOT CHANGE
