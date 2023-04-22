@@ -67,7 +67,10 @@ class Board:
                 cell.sketch = cell.value
 
     def is_full(self):
-        pass
+        for cell in self.cells:
+            if cell.value == 0:
+                return False
+            return True
     def update_board(self):
         for row in self.grid:
             for cell in row:
