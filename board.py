@@ -1,5 +1,6 @@
 import pygame
 from cell import Cell
+import sudoku_generator
 class Board:
     def __init__(self, width, height, screen, difficulty):
         self.width = width
@@ -28,7 +29,7 @@ class Board:
         # select the new cell
         self.selected_row = row
         self.selected_col = col
-        self.cells[self.selected_row][self.selected_col].selected = True
+        self.grid[self.selected_row][self.selected_col].selected = True
 
     def click(self, x, y):
         if x < 0 or y < 0 or x > self.width * 50 or y > self.height * 50:
@@ -60,16 +61,15 @@ class Board:
                 cell.value = value
                 cell.sketch = None
     def reset_to_original(self):
-        for cell in self.cells:
-            if cell.value == 0:
-                cell.sketch = 0
-            else:
+        for row in self.grid:
+            for cell in row:
                 cell.sketch = cell.value
 
     def is_full(self):
-        for cell in self.cells:
-            if cell.value == 0:
-                return False
+        for row in self.grid:
+            for cell in row:
+                if cell.value == 0:
+                    return False
         return True
     def update_board(self):
         for row in self.grid:
@@ -82,4 +82,13 @@ class Board:
                     return (row, col)
         return None
     def check_board(self):
-        pass
+        solution = sudoku_generator.SudokuGenerator.get_solution()
+        for row in self.grid:
+            for cell in row:
+                if cell.sketch != solution[cell.col][cell.row]:
+                    return False
+        return True
+
+
+
+
