@@ -11,7 +11,7 @@ from board import Board
 pygame.init()
 
 # Set the dimensions of the game window
-WINDOW_WIDTH = 600
+WINDOW_WIDTH = 550
 WINDOW_HEIGHT = 600
 
 
@@ -55,15 +55,15 @@ while running:
             if game_screen == GAME_START:
                 if 100 < x < 190 and 350 < y < 380:
                     # Start a new easy game
-                    board = Board(9, 9, game_window, difficulty=1)
+                    board = Board(9, 9, game_window, difficulty=30)
                     game_screen = GAME_IN_PROGRESS
                 elif 250 < x < 340 and 350 < y < 380:
                     # Start a new medium game
-                    board = Board(9, 9, game_window, difficulty=2)
+                    board = Board(9, 9, game_window, difficulty=40)
                     game_screen = GAME_IN_PROGRESS
                 elif 400 < x < 490 and 350 < y < 380:
                     # Start a new hard game
-                    board = Board(9, 9, game_window, difficulty=3)
+                    board = Board(9, 9, game_window, difficulty=50)
                     game_screen = GAME_IN_PROGRESS
 
             elif game_screen == GAME_IN_PROGRESS:

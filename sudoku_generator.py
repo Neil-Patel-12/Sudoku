@@ -31,7 +31,7 @@ class SudokuGenerator:
         self.row_length = row_length
         self.removed_cells = removed_cells
         self.board = [[0 for i in range(self.row_length)] for j in range(self.row_length)]
-        self.box_length = math.sqrt(row_length)
+        self.box_length = int(math.sqrt(row_length))
 
 
 
@@ -198,6 +198,7 @@ class SudokuGenerator:
         self.fill_diagonal()
         self.fill_remaining(0, self.box_length)
 
+
     '''
     Removes the appropriate number of cells from the board
     This is done by setting some values to 0
@@ -214,8 +215,8 @@ class SudokuGenerator:
         SudokuGenerator.solved = self.board[:]
         counter = 0
         while counter < self.removed_cells:
-            remove_row = random.randrange(1, 10)
-            remove_col = random.randrange(1, 10)
+            remove_row = random.randrange(0, 9)
+            remove_col = random.randrange(0, 9)
             if self.board[remove_row][remove_col] != 0:
                 self.board[remove_row][remove_col] = 0
                 counter += 1

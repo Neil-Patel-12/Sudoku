@@ -1,14 +1,21 @@
-import pygame
 from cell import Cell
 from sudoku_generator import SudokuGenerator
+
+
 class Board:
     def __init__(self, width, height, screen, difficulty):
         self.width = width
         self.height = height
         self.screen = screen
         self.difficulty = difficulty
-        # need to adjust to place the correct number value in the cell
-        self.grid = [[Cell(0, row, col, screen) for col in range(9)] for row in range(9)]
+
+        # initialize board with SudokuGenerator class
+        sudoku = SudokuGenerator(30)
+        sudoku.fill_values()
+        sudoku.remove_cells()
+        board = sudoku.get_board()
+
+        self.grid = [[Cell(board[row][col], row, col, screen) for col in range(9)] for row in range(9)]
         self.selected_row = None
         self.selected_col = None
 
@@ -21,6 +28,7 @@ class Board:
             for col in range(9):
                 cell = self.grid[row][col]
                 cell.draw()
+
     def select(self, row, col):
         # unselects any previously selected cell
         if (self.selected_row is not None) and (self.selected_col is not None):
@@ -54,12 +62,14 @@ class Board:
     def sketch(self, value):
         if self.selected:
             self.grid[self.selected_row[0]][self.selected_col[1]].sketch = value
+
     def place_number(self, value):
         if self.selected:
             cell = self.grid[self.selected_row[0]][self.selected_col[1]]
             if not cell.original:
                 cell.value = value
                 cell.sketch = None
+
     def reset_to_original(self):
         for row in self.grid:
             for cell in row:
@@ -71,10 +81,12 @@ class Board:
                 if cell.value == 0:
                     return False
         return True
+
     def update_board(self):
         for row in self.grid:
             for cell in row:
                 cell.update_value()
+
     def find_empty(self):
         for row in range(9):
             for col in range(9):
@@ -89,7 +101,3 @@ class Board:
                 if cell.sketch != solution[cell.col][cell.row]:
                     return False
         return True
-
-
-
-
