@@ -17,10 +17,11 @@ class Cell:
 
     def draw(self):
         font = pygame.font.SysFont('calibri', 40)
-        text = font.render(str(self.value), True, (0, 0, 0))
-        text_rect = text.get_rect()
-        text_rect.center = (75 + self.col * 50, 75 + self.row * 50)
-        self.screen.blit(text, text_rect)
+        if self.value != 0:
+            text = font.render(str(self.value), True, (0, 0, 0))
+            text_rect = text.get_rect()
+            text_rect.center = (75 + self.col * 50, 75 + self.row * 50)
+            self.screen.blit(text, text_rect)
         if self.sketch != 0:
             text = font.render(str(self.sketch), True, (128, 128, 128))
             text_rect = text.get_rect()
