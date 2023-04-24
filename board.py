@@ -14,6 +14,8 @@ class Board:
         sudoku.fill_values()
         sudoku.remove_cells()
         self.board = sudoku.get_board()
+        # save the board to be able to reset it to its original state
+        self.original_board = [row[:] for row in self.board]
 
         self.grid = [[Cell(self.board[row][col], row, col, screen) for col in range(9)] for row in range(9)]
         self.selected_row = None
@@ -72,9 +74,8 @@ class Board:
             self.grid[self.selected_row][self.selected_col].sketch = 0
 
     def reset_to_original(self):
-        for row in self.grid:
-            for cell in row:
-                cell.sketch = cell.value
+        self.board = [row[:] for row in self.original_board]
+        self.grid = [[Cell(self.board[row][col], row, col, self.screen) for col in range(9)] for row in range(9)]
 
     def is_full(self):
         for row in self.grid:

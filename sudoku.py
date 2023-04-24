@@ -72,21 +72,19 @@ while running:
             # Handle cell selection and number placement
 
             if 40 < x < 130 and 460 < y < 490:
-                # insert command for reset
-                pass
+                # The Reset button will reset the board to its initial state.
+                board.reset_to_original()
             elif 180 < x < 270 and 460 < y < 490:
-                # inset command for restart
+                # The Restart button will take the user back to the Game Start screen.
                 pass
             elif 330 < x < 420 and 460 < y < 490:
-                # exits the application
+                # The Exit button will end the program.
                 pygame.quit()
-
 
             # selects a cell
             if board.click(x, y) is not None:
                 row_selected, col_selected = board.click(x, y)
                 board.select(row_selected, col_selected)
-
 
             # sketches a value, can be removed by typing 0 when the cell is selected
             if event.type == pygame.KEYDOWN:
