@@ -75,7 +75,7 @@ while running:
                 # The Reset button will reset the board to its initial state.
                 board.reset_to_original()
             elif 180 < x < 270 and 460 < y < 490:
-                # The Restart button will take the user back to the Game Start screen.
+                game_screen = GAME_START
                 pass
             elif 330 < x < 420 and 460 < y < 490:
                 # The Exit button will end the program.
