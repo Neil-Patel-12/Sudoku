@@ -38,8 +38,6 @@ GAME_OVER = 2
 # Initialize the game screen
 game_screen = GAME_START
 
-# Create a new Sudoku board
-board = Board(9, 9, game_window, difficulty=1)
 
 # Main game loop
 running = True
@@ -57,30 +55,27 @@ while running:
             if game_screen == GAME_START:
                 if 100 < x < 190 and 350 < y < 380:
                     # Start a new easy game
-                    board = Board(9, 9, game_window, difficulty=30)
+                    board = Board(9, 9, game_window, 30)
                     game_screen = GAME_IN_PROGRESS
                 elif 250 < x < 340 and 350 < y < 380:
                     # Start a new medium game
-                    board = Board(9, 9, game_window, difficulty=40)
+                    board = Board(9, 9, game_window, 40)
                     game_screen = GAME_IN_PROGRESS
                 elif 400 < x < 490 and 350 < y < 380:
                     # Start a new hard game
-                    board = Board(9, 9, game_window, difficulty=50)
+                    board = Board(9, 9, game_window, 50)
                     game_screen = GAME_IN_PROGRESS
 
             elif game_screen == GAME_IN_PROGRESS:
                 # Handle cell selection and number placement
 
-                selected_cell_1 = board.click(x, y)
-                if selected_cell_1:
-                    for row in range(9):
-                        for col in range(9):
-                            if board.grid[row][col].selected and board.grid[row][col] != selected_cell_1:
-                                board.grid[row][col].selected = False
-                                board.grid[row][col].highlighted = False
+                row_selected, col_selected = board.click(x, y)
                 if event.button == 1:
-                    if board.number_selection_rect.collidepoint(x, y):
-                        board.display_number_selection()
+                    board.select(row_selected, col_selected)
+
+                if event.type == pygame.KEYDOWN:
+                    if event.key in range(0, 9):
+                        board.sketch(event.key)
 
                 # Check if the board is complete
                 if board.is_full():

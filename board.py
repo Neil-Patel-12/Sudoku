@@ -10,7 +10,7 @@ class Board:
         self.difficulty = difficulty
 
         # initialize board with SudokuGenerator class
-        sudoku = SudokuGenerator(30)
+        sudoku = SudokuGenerator(difficulty)
         sudoku.fill_values()
         sudoku.remove_cells()
         board = sudoku.get_board()
@@ -60,8 +60,7 @@ class Board:
                 cell.set_cell_value(0)
 
     def sketch(self, value):
-        if self.selected:
-            self.grid[self.selected_row[0]][self.selected_col[1]].sketch = value
+        self.grid[self.selected_row[0]][self.selected_col[1]].sketch = value
 
     def place_number(self, value):
         if self.selected:
@@ -85,7 +84,7 @@ class Board:
     def update_board(self):
         for row in self.grid:
             for cell in row:
-                cell.update_value()
+                pass
 
     def find_empty(self):
         for row in range(9):
