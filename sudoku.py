@@ -66,29 +66,29 @@ while running:
                     board = Board(9, 9, game_window, 50)
                     game_screen = GAME_IN_PROGRESS
 
-            elif game_screen == GAME_IN_PROGRESS:
-                # Handle cell selection and number placement
+        elif game_screen == GAME_IN_PROGRESS:
+            # Handle cell selection and number placement
 
-                row_selected, col_selected = board.click(x, y)
-                if event.button == 1:
-                    board.select(row_selected, col_selected)
+            row_selected, col_selected = board.click(x, y)
+            board.select(row_selected, col_selected)
 
-                if event.type == pygame.KEYDOWN:
-                    if event.key in range(0, 9):
-                        board.sketch(event.key)
+            if event.type == pygame.KEYDOWN:
+                num = int(event.unicode)
+                if num in range(0, 9):
+                    board.sketch(num)
 
-                # Check if the board is complete
-                if board.is_full():
-                    game_screen = GAME_OVER
+            # Check if the board is complete
+            if board.is_full():
+                game_screen = GAME_OVER
 
-                # Update the board display
-                board.update_board()
+            # Update the board display
+            board.update_board()
 
-            elif game_screen == GAME_OVER:
-                if 200 < x < 340 and 400 < y < 440:
-                    # Restart the game
-                    board.reset_to_original()
-                    game_screen = GAME_IN_PROGRESS
+        elif game_screen == GAME_OVER:
+            if 200 < x < 340 and 400 < y < 440:
+                # Restart the game
+                board.reset_to_original()
+                game_screen = GAME_IN_PROGRESS
 
     # Clear the screen
     game_window.fill(BLUE)
