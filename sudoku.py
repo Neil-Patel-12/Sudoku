@@ -20,6 +20,8 @@ game_window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
 # Set the title of the game window
 pygame.display.set_caption("Sudoku")
+icon = pygame.image.load('001-pastime.png')
+pygame.display.set_icon(icon)
 
 # Set the font for the text displayed on the game screen
 FONT = pygame.font.Font(None, 30)
