@@ -39,3 +39,16 @@ class Cell:
 
         # draw the gridlines for the entire array
         pygame.draw.rect(self.screen, (0, 0, 0), pygame.Rect(50 + (self.col-1) * 50, 50 + (self.row-1) * 50, 50, 50), 1)
+
+        bold = 4  # Thickness of the bold gridlines
+        # Makes every 3rd  vertical line bold to differentiate boxes
+        if (self.col + 1) % 3 == 0 and self.col != 8:
+            pygame.draw.line(self.screen, (0, 0, 0), ((self.col + 1) * 50, 0 ), ((self.col + 1)* 50, 450), width=bold)
+
+            # Makes every 3rd horizontal line bold to differentiate boxes
+        if (self.row + 1) % 3 == 0 and self.row != 8:
+            pygame.draw.line(self.screen, (0, 0, 0), (0, (self.row + 1) * 50), (450, (self.row + 1) * 50), width=bold)
+
+
+
+
