@@ -65,11 +65,11 @@ class Board:
             self.grid[self.selected_row][self.selected_col].set_sketched_value(value)
 
     def place_number(self, value):
-        if self.selected:
-            cell = self.grid[self.selected_row[0]][self.selected_col[1]]
-            if not cell.original:
-                cell.value = value
-                cell.sketch = None
+        cell_value = self.grid[self.selected_row][self.selected_col].value
+        if cell_value == 0:
+            self.grid[self.selected_row][self.selected_col].set_cell_value(value)
+            # reset sketched value to 0 to indicate that the cell value is now fixed
+            self.grid[self.selected_row][self.selected_col].sketch = 0
 
     def reset_to_original(self):
         for row in self.grid:

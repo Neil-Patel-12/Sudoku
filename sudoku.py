@@ -69,6 +69,17 @@ while running:
         elif game_screen == GAME_IN_PROGRESS:
             # Handle cell selection and number placement
 
+            if 40 < x < 130 and 460 < y < 490:
+                # insert command for reset
+                pass
+            elif 180 < x < 270 and 460 < y < 490:
+                # inset command for restart
+                pass
+            elif 330 < x < 420 and 460 < y < 490:
+                # exits the application
+                pygame.quit()
+
+
             # selects a cell
             if board.click(x, y) is not None:
                 row_selected, col_selected = board.click(x, y)
@@ -77,9 +88,12 @@ while running:
 
             # sketches a value, can be removed by typing 0 when the cell is selected
             if event.type == pygame.KEYDOWN:
-                num = int(event.unicode)
-                if num in range(0, 10):
-                    board.sketch(num)
+                if event.unicode.isdigit():     # checks if the key pressed is a number
+                    num = int(event.unicode)
+                    if num in range(0, 10):
+                        board.sketch(num)
+                elif event.unicode == '\r':     # checks if return key was pressed
+                    board.place_number(num)
 
             # Check if the board is complete
             if board.is_full():
