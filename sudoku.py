@@ -70,8 +70,10 @@ while running:
             # Handle cell selection and number placement
 
             # selects a cell
-            row_selected, col_selected = board.click(x, y)
-            board.select(row_selected, col_selected)
+            if board.click(x, y) is not None:
+                row_selected, col_selected = board.click(x, y)
+                board.select(row_selected, col_selected)
+
 
             # sketches a value, can be removed by typing 0 when the cell is selected
             if event.type == pygame.KEYDOWN:
