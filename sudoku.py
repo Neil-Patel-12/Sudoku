@@ -11,8 +11,8 @@ from board import Board
 pygame.init()
 
 # Set the dimensions of the game window
-WINDOW_WIDTH = 550
-WINDOW_HEIGHT = 600
+WINDOW_WIDTH = 450
+WINDOW_HEIGHT = 500
 
 
 # Create the game window
@@ -53,15 +53,15 @@ while running:
 
             # Handle mouse click based on the current game screen
             if game_screen == GAME_START:
-                if 100 < x < 190 and 350 < y < 380:
+                if 40 < x < 130 and 350 < y < 380:
                     # Start a new easy game
                     board = Board(9, 9, game_window, 30)
                     game_screen = GAME_IN_PROGRESS
-                elif 250 < x < 340 and 350 < y < 380:
+                elif 180 < x < 270 and 350 < y < 380:
                     # Start a new medium game
                     board = Board(9, 9, game_window, 40)
                     game_screen = GAME_IN_PROGRESS
-                elif 400 < x < 490 and 350 < y < 380:
+                elif 330 < x < 420 and 350 < y < 380:
                     # Start a new hard game
                     board = Board(9, 9, game_window, 50)
                     game_screen = GAME_IN_PROGRESS
@@ -69,12 +69,14 @@ while running:
         elif game_screen == GAME_IN_PROGRESS:
             # Handle cell selection and number placement
 
+            # selects a cell
             row_selected, col_selected = board.click(x, y)
             board.select(row_selected, col_selected)
 
+            # sketches a value, can be removed by typing 0 when the cell is selected
             if event.type == pygame.KEYDOWN:
                 num = int(event.unicode)
-                if num in range(0, 9):
+                if num in range(0, 10):
                     board.sketch(num)
 
             # Check if the board is complete
@@ -100,19 +102,28 @@ while running:
         game_window.blit(text, (150, 150))
         text = FONT.render("Select Game Mode:", True, WHITE)
         game_window.blit(text, (150, 250))
-        pygame.draw.rect(game_window, WHITE, (100, 350, 90, 30), 1)
+        pygame.draw.rect(game_window, WHITE, (40, 350, 90, 30), 1)
         text = FONT.render("easy", True, WHITE)
-        game_window.blit(text, (120, 350))
-        pygame.draw.rect(game_window, WHITE, (250, 350, 90, 30), 1)
+        game_window.blit(text, (50, 350))
+        pygame.draw.rect(game_window, WHITE, (180, 350, 90, 30), 1)
         text = FONT.render("medium", True, WHITE)
-        game_window.blit(text, (253, 350))
-        pygame.draw.rect(game_window, WHITE, (400, 350, 90, 30), 1)
+        game_window.blit(text, (190, 350))
+        pygame.draw.rect(game_window, WHITE, (330, 350, 90, 30), 1)
         text = FONT.render("hard", True, WHITE)
-        game_window.blit(text, (420, 350))
+        game_window.blit(text, (350, 350))
 
     elif game_screen == GAME_IN_PROGRESS:
         # Draw the game in progress screen
         board.draw()
+        pygame.draw.rect(game_window, BLACK, (40, 460, 90, 30), 1)
+        text = FONT.render("reset", True, BLACK)
+        game_window.blit(text, (50, 460))
+        pygame.draw.rect(game_window, BLACK, (180, 460, 90, 30), 1)
+        text = FONT.render("restart", True, BLACK)
+        game_window.blit(text, (200, 460))
+        pygame.draw.rect(game_window, BLACK, (330, 460, 90, 30), 1)
+        text = FONT.render("exit", True, BLACK)
+        game_window.blit(text, (350, 460))
 
     elif game_screen == GAME_OVER:
         # Draw the game over screen

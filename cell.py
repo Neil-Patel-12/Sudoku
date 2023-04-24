@@ -21,13 +21,14 @@ class Cell:
         if self.value != 0:
             text = font.render(str(self.value), True, (0, 0, 0))
             text_rect = text.get_rect()
-            text_rect.center = (75 + self.col * 50, 75 + self.row * 50)
+            text_rect.center = (75 + (self.col-1) * 50, 75 + (self.row-1) * 50)
             self.screen.blit(text, text_rect)
         if self.selected:  # need to fix this to make the highlight transparent not to delete the number on the grid
-            pygame.draw.rect(self.screen, (False, 191, 255, 128), pygame.Rect(50 + (self.col - 1) * 50, 50 + (self.row -1) * 50, 50, 50))
+            pygame.draw.rect(self.screen, (False, 191, 255, 128), pygame.Rect(50 + (self.col - 1) * 50,
+                                                                              50 + (self.row - 1) * 50, 50, 50))
         if self.sketch != 0:
             text = font.render(str(self.sketch), True, (128, 128, 128))
             text_rect = text.get_rect()
-            text_rect.center = (75 + self.col * 50 + 20, 75 + self.row * 50 + 20)
+            text_rect.center = (75 + (self.col-1) * 50, 75 + (self.row-1) * 50)
             self.screen.blit(text, text_rect)
-        pygame.draw.rect(self.screen, (0, 0, 0), pygame.Rect(50 + self.col * 50, 50 + self.row * 50, 50, 50), 1)
+        pygame.draw.rect(self.screen, (0, 0, 0), pygame.Rect(50 + (self.col-1) * 50, 50 + (self.row-1) * 50, 50, 50), 1)

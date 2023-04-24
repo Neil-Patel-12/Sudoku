@@ -60,7 +60,9 @@ class Board:
                 cell.set_cell_value(0)
 
     def sketch(self, value):
-        self.grid[self.selected_row][self.selected_col].set_sketched_value(value)
+        cell_value = self.grid[self.selected_row][self.selected_col].value
+        if cell_value == 0:
+            self.grid[self.selected_row][self.selected_col].set_sketched_value(value)
 
     def place_number(self, value):
         if self.selected:
