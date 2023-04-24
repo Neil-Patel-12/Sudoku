@@ -81,7 +81,11 @@ while running:
                 if event.button == 1:
                     if board.number_selection_rect.collidepoint(x, y):
                         board.display_number_selection()
-
+                    else:
+                        board.number_selected = None
+                        board.number_selected_display = None
+                        board.number_selected_rect = None
+                        board.find_empty()
                 # Check if the board is complete
                 if board.is_full():
                     game_screen = GAME_OVER
