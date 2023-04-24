@@ -13,9 +13,9 @@ class Board:
         sudoku = SudokuGenerator(difficulty)
         sudoku.fill_values()
         sudoku.remove_cells()
-        board = sudoku.get_board()
+        self.board = sudoku.get_board()
 
-        self.grid = [[Cell(board[row][col], row, col, screen) for col in range(9)] for row in range(9)]
+        self.grid = [[Cell(self.board[row][col], row, col, screen) for col in range(9)] for row in range(9)]
         self.selected_row = None
         self.selected_col = None
 
@@ -84,10 +84,10 @@ class Board:
         return True
 
     def update_board(self):
-        for row in self.grid:
-            for cell in row:
-                value = cell.value
-                self.grid[cell.row][cell.col] = value
+        # updates the sudoku 2d board with the information in each cell
+        for row in range(9):
+            for col in range(9):
+                self.board[row][col] = self.grid[row][col].value
 
     def find_empty(self):
         for row in range(9):
