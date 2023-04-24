@@ -86,7 +86,8 @@ class Board:
     def update_board(self):
         for row in self.grid:
             for cell in row:
-                pass
+                value = cell.value
+                self.grid[cell.row][cell.col] = value
 
     def find_empty(self):
         for row in range(9):
