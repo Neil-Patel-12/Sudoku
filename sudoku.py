@@ -27,6 +27,8 @@ FONT = pygame.font.Font(None, 30)
 # Define some colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+LIGHT_ORANGE = (235, 180, 52)
+BLUE = (52, 79, 235)
 
 # Define the game screens
 GAME_START = 0
@@ -68,7 +70,17 @@ while running:
 
             elif game_screen == GAME_IN_PROGRESS:
                 # Handle cell selection and number placement
-                board.click(x, y)
+
+                selected_cell_1 = board.click(x, y)
+                if selected_cell_1:
+                    for row in range(9):
+                        for col in range(9):
+                            if board.grid[row][col].selected and board.grid[row][col] != selected_cell_1:
+                                board.grid[row][col].selected = False
+                                board.grid[row][col].highlighted = False
+                if event.button == 1:
+                    if board.number_selection_rect.collidepoint(x, y):
+                        board.display_number_selection()
 
                 # Check if the board is complete
                 if board.is_full():
@@ -84,7 +96,7 @@ while running:
                     game_screen = GAME_IN_PROGRESS
 
     # Clear the screen
-    game_window.fill(BLACK)
+    game_window.fill(BLUE)
 
     # Draw the appropriate screen based on the current game screen
     if game_screen == GAME_START:
