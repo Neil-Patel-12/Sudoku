@@ -59,7 +59,7 @@ while running:
             if game_screen == GAME_START:
                 if 40 < x < 130 and 350 < y < 380:
                     # Start a new easy game
-                    board = Board(9, 9, game_window, 1)
+                    board = Board(9, 9, game_window, 30)
                     game_screen = GAME_IN_PROGRESS
                 elif 180 < x < 270 and 350 < y < 380:
                     # Start a new medium game
