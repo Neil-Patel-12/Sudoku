@@ -138,7 +138,7 @@ class SudokuGenerator:
                         self.board[r][c] = val
                         used_vals.append(val)
                         break
-                    continue
+
     
     '''
     Fills the three boxes along the main diagonal of the board
