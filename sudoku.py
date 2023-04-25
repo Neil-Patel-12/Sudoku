@@ -57,7 +57,7 @@ while running:
             if game_screen == GAME_START:
                 if 40 < x < 130 and 350 < y < 380:
                     # Start a new easy game
-                    board = Board(9, 9, game_window, 30)
+                    board = Board(9, 9, game_window, 1)
                     game_screen = GAME_IN_PROGRESS
                 elif 180 < x < 270 and 350 < y < 380:
                     # Start a new medium game
@@ -104,10 +104,12 @@ while running:
 
         elif game_screen == GAME_OVER:
             if 200 < x < 340 and 400 < y < 440:
+                if Board.check_board(board):
+                    pygame.quit()
+                else:
+                    game_screen = GAME_START
 
-                # Restart the game
-                board.reset_to_original()
-                game_screen = GAME_IN_PROGRESS
+
 
     # Clear the screen
     game_window.fill(BLUE)
@@ -147,13 +149,15 @@ while running:
         if Board.check_board(board):
             text = FONT.render("Game Won!", True, WHITE)
             game_window.blit(text, (200, 250))
-
+            pygame.draw.rect(game_window, WHITE, (200, 400, 140, 40), 1)
+            text = FONT.render("Quit", True, WHITE)
+            game_window.blit(text, (220, 410))
         else:
             text = FONT.render("Game Over :(", True, WHITE)
             game_window.blit(text, (200, 250))
-        pygame.draw.rect(game_window, WHITE, (200, 400, 140, 40), 1)
-        text = FONT.render("Restart", True, WHITE)
-        game_window.blit(text, (220, 410))
+            pygame.draw.rect(game_window, WHITE, (200, 400, 140, 40), 1)
+            text = FONT.render("Restart", True, WHITE)
+            game_window.blit(text, (220, 410))
 
     # Update the display
     pygame.display.update()
