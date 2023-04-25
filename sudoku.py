@@ -6,6 +6,7 @@ in progress), and will form a cohesive project together with the rest of the cod
 """
 import pygame
 from board import Board
+from sudoku_generator import SudokuGenerator
 
 # Initialize Pygame
 pygame.init()
@@ -20,8 +21,9 @@ game_window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
 # Set the title of the game window
 pygame.display.set_caption("Sudoku")
-# icon = pygame.image.load('001-pastime.png')
-# pygame.display.set_icon(icon)
+icon = pygame.image.load('001-pastime.png')
+pygame.display.set_icon(icon)
+background = pygame.image.load("wallpaper.png")
 
 # Set the font for the text displayed on the game screen
 FONT = pygame.font.Font(None, 30)
@@ -29,7 +31,7 @@ FONT = pygame.font.Font(None, 30)
 # Define some colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-LIGHT_ORANGE = (235, 180, 52)
+PURPLE = (128, 52, 235)
 BLUE = (52, 79, 235)
 
 # Define the game screens
@@ -57,7 +59,7 @@ while running:
             if game_screen == GAME_START:
                 if 40 < x < 130 and 350 < y < 380:
                     # Start a new easy game
-                    board = Board(9, 9, game_window, 1)
+                    board = Board(9, 9, game_window, 30)
                     game_screen = GAME_IN_PROGRESS
                 elif 180 < x < 270 and 350 < y < 380:
                     # Start a new medium game
@@ -76,7 +78,6 @@ while running:
                 board.reset_to_original()
             elif 180 < x < 270 and 460 < y < 490:
                 game_screen = GAME_START
-                pass
             elif 330 < x < 420 and 460 < y < 490:
                 # The Exit button will end the program.
                 pygame.quit()
@@ -99,20 +100,13 @@ while running:
             if board.is_full():
                 game_screen = GAME_OVER
 
-            # Update the board display
-            board.update_board()
-
         elif game_screen == GAME_OVER:
             if 200 < x < 340 and 400 < y < 440:
-                if Board.check_board(board):
-                    pygame.quit()
-                else:
-                    game_screen = GAME_START
-
-
+                # Restart the game
+                game_screen = GAME_START
 
     # Clear the screen
-    game_window.fill(BLUE)
+    game_window.blit(background, (0, 0))
 
     # Draw the appropriate screen based on the current game screen
     if game_screen == GAME_START:
@@ -149,15 +143,13 @@ while running:
         if Board.check_board(board):
             text = FONT.render("Game Won!", True, WHITE)
             game_window.blit(text, (200, 250))
-            pygame.draw.rect(game_window, WHITE, (200, 400, 140, 40), 1)
-            text = FONT.render("Quit", True, WHITE)
-            game_window.blit(text, (220, 410))
+
         else:
             text = FONT.render("Game Over :(", True, WHITE)
             game_window.blit(text, (200, 250))
-            pygame.draw.rect(game_window, WHITE, (200, 400, 140, 40), 1)
-            text = FONT.render("Restart", True, WHITE)
-            game_window.blit(text, (220, 410))
+        pygame.draw.rect(game_window, WHITE, (200, 400, 140, 40), 1)
+        text = FONT.render("Restart", True, WHITE)
+        game_window.blit(text, (220, 410))
 
     # Update the display
     pygame.display.update()
