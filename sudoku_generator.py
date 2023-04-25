@@ -113,8 +113,6 @@ class SudokuGenerator:
 	Return: boolean
     '''
     def is_valid(self, row, col, num):
-        if self.board[row][col] != "0":
-            return False
         return (self.valid_in_row(row, num))\
             and (self.valid_in_col(col, num))\
             and (self.valid_in_box(row - (row % 3), col - (col % 3), num))
