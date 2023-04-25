@@ -6,6 +6,7 @@ in progress), and will form a cohesive project together with the rest of the cod
 """
 import pygame
 from board import Board
+from sudoku_generator import SudokuGenerator
 
 # Initialize Pygame
 pygame.init()
@@ -76,7 +77,6 @@ while running:
                 board.reset_to_original()
             elif 180 < x < 270 and 460 < y < 490:
                 game_screen = GAME_START
-                pass
             elif 330 < x < 420 and 460 < y < 490:
                 # The Exit button will end the program.
                 pygame.quit()
@@ -99,15 +99,10 @@ while running:
             if board.is_full():
                 game_screen = GAME_OVER
 
-            # Update the board display
-            board.update_board()
-
         elif game_screen == GAME_OVER:
             if 200 < x < 340 and 400 < y < 440:
-
                 # Restart the game
-                board.reset_to_original()
-                game_screen = GAME_IN_PROGRESS
+                game_screen = GAME_START
 
     # Clear the screen
     game_window.fill(BLUE)
