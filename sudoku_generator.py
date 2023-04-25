@@ -216,7 +216,7 @@ class SudokuGenerator:
 	Return: None
     '''
     def remove_cells(self):
-        SudokuGenerator.solved = self.board[:]
+        SudokuGenerator.solved = [row[:] for row in self.board]  # no clue why this worked but not self.board[:]
         counter = 0
         while counter < self.removed_cells:
             remove_row = random.randrange(0, 9)

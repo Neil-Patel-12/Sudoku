@@ -21,8 +21,9 @@ game_window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
 # Set the title of the game window
 pygame.display.set_caption("Sudoku")
-# icon = pygame.image.load('001-pastime.png')
-# pygame.display.set_icon(icon)
+icon = pygame.image.load('001-pastime.png')
+pygame.display.set_icon(icon)
+background = pygame.image.load("wallpaper.png")
 
 # Set the font for the text displayed on the game screen
 FONT = pygame.font.Font(None, 30)
@@ -30,7 +31,7 @@ FONT = pygame.font.Font(None, 30)
 # Define some colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-LIGHT_ORANGE = (235, 180, 52)
+PURPLE = (128, 52, 235)
 BLUE = (52, 79, 235)
 
 # Define the game screens
@@ -101,11 +102,13 @@ while running:
 
         elif game_screen == GAME_OVER:
             if 200 < x < 340 and 400 < y < 440:
-                # Restart the game
-                game_screen = GAME_START
+                if Board.check_board(board):
+                    pygame.quit()
+                else:
+                    game_screen = GAME_START
 
     # Clear the screen
-    game_window.fill(BLUE)
+    game_window.blit(background, (0, 0))
 
     # Draw the appropriate screen based on the current game screen
     if game_screen == GAME_START:
