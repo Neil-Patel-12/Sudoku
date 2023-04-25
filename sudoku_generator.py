@@ -133,6 +133,8 @@ class SudokuGenerator:
         for r in range(row_start, row_start + self.box_length):
             for c in range(col_start, col_start + self.box_length):
                 while True:
+                    if len(used_vals) >= 9:
+                        break
                     val = random.randint(1, 9)
                     if val not in used_vals:
                         self.board[r][c] = val
