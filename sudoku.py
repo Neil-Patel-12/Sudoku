@@ -102,8 +102,10 @@ while running:
 
         elif game_screen == GAME_OVER:
             if 200 < x < 340 and 400 < y < 440:
-                # Restart the game
-                game_screen = GAME_START
+                if Board.check_board(board):
+                    pygame.quit()
+                else:
+                    game_screen = GAME_START
 
     # Clear the screen
     game_window.blit(background, (0, 0))
