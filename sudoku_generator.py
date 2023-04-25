@@ -27,7 +27,7 @@ class SudokuGenerator:
     def get_solution(cls):
         return cls.solved
 
-    def __init__(self, removed_cells, row_length=9):
+    def __init__(self, removed_cells, row_length):
         self.row_length = row_length
         self.removed_cells = removed_cells
         self.board = [[0 for i in range(self.row_length)] for j in range(self.row_length)]
