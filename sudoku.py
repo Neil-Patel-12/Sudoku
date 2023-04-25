@@ -152,6 +152,7 @@ while running:
             game_window.blit(text, (200, 250))
             text = FONT.render("Restart", True, WHITE)
             game_window.blit(text, (220, 410))
+
         pygame.draw.rect(game_window, WHITE, (200, 400, 140, 40), 1)
 
 
