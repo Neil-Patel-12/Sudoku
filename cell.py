@@ -25,10 +25,10 @@ class Cell:
             text_rect.center = (75 + (self.col-1) * 50, 75 + (self.row-1) * 50)
             self.screen.blit(text, text_rect)
 
-        # highlights the selected cell
-        if self.selected:  # need to fix this to make the highlight transparent not to delete the number on the grid
-            pygame.draw.rect(self.screen, (False, 191, 255, 128), pygame.Rect(50 + (self.col - 1) * 50,
-                                                                              50 + (self.row - 1) * 50, 50, 50))
+        # highlights the border of the selected cell
+        if self.selected:
+            pygame.draw.rect(self.screen, (255, 0, 0), pygame.Rect(50 + (self.col - 1) * 50,
+                                                                   50 + (self.row - 1) * 50, 50, 50), 4)
 
         # prints to the screen a sketched value in the cell
         if self.sketch != 0:
@@ -49,7 +49,3 @@ class Cell:
             # Makes every 3rd horizontal line bold to differentiate boxes
         if (self.row + 1) % 3 == 0 and self.row != 8:
             pygame.draw.line(self.screen, (0, 0, 0), (0, (self.row + 1) * 50), (450, (self.row + 1) * 50), width=bold)
-
-
-
-
