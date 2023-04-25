@@ -104,6 +104,7 @@ while running:
 
         elif game_screen == GAME_OVER:
             if 200 < x < 340 and 400 < y < 440:
+
                 # Restart the game
                 board.reset_to_original()
                 game_screen = GAME_IN_PROGRESS
@@ -143,8 +144,13 @@ while running:
 
     elif game_screen == GAME_OVER:
         # Draw the game over screen
-        text = FONT.render("Game Over!", True, WHITE)
-        game_window.blit(text, (200, 250))
+        if Board.check_board(board):
+            text = FONT.render("Game Won!", True, WHITE)
+            game_window.blit(text, (200, 250))
+
+        else:
+            text = FONT.render("Game Over :(", True, WHITE)
+            game_window.blit(text, (200, 250))
         pygame.draw.rect(game_window, WHITE, (200, 400, 140, 40), 1)
         text = FONT.render("Restart", True, WHITE)
         game_window.blit(text, (220, 410))

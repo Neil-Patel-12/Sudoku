@@ -101,6 +101,6 @@ class Board:
         solution = SudokuGenerator.get_solution()  # resets after each generate_sudoku call
         for row in self.grid:
             for cell in row:
-                if cell.sketch != solution[cell.col][cell.row]:
+                if cell.value != solution[cell.row][cell.col]:
                     return False
         return True
