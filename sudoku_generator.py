@@ -28,7 +28,7 @@ class SudokuGenerator:
     def get_solution(cls):
         return cls.solved
 
-    def __init__(self, removed_cells, row_length=9):
+    def __init__(self, removed_cells, row_length):
         self.row_length = row_length
         self.removed_cells = removed_cells
         self.board = [[0 for i in range(self.row_length)] for j in range(self.row_length)]
@@ -66,7 +66,15 @@ class SudokuGenerator:
 	Return: boolean
     '''
     def valid_in_row(self, row, num):
-        return num not in self.board[row]
+        roww = [0,1,2,3,4,5,6,7,8]
+        for i in roww:
+            if (self.board[row][i] == num):
+                return False
+        return True
+        #for col in range(self.row_length):
+            #if self.board[row][col] == num:
+                #return False
+        #return True
 
     '''
 	Determines if num is contained in the specified column (vertical) of the board
@@ -79,8 +87,9 @@ class SudokuGenerator:
 	Return: boolean
     '''
     def valid_in_col(self, col, num):   # board[row][col]
-        for row in self.board:
-            if row[col] == num:
+        roww = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        for i in roww:
+            if (self.board[i][col] == num):
                 return False
         return True
 
@@ -151,7 +160,7 @@ class SudokuGenerator:
 	Return: None
     '''
     def fill_diagonal(self):
-        for i in range(0, self.row_length, 3):
+        for i in range(0, 9, 3):
             self.fill_box(i, i)
 
     '''
