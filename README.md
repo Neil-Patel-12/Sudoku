@@ -21,8 +21,8 @@
 Through this endeavor, my programming skills were put to the test, and I thoroughly enjoyed every aspect of this Sudoku project. Coding has always been a passion of mine, and this project allowed me to immerse myself in my love for problem-solving and software development.
 
 ## Some useful Links
-[https://replit.com/~](https://replit.com/~)  // replit
-https://www.geeksforgeeks.org/program-sudoku-generator/  // GeeksforGeeks article "Program for Sudoku Generator"
+[https://replit.com/~](https://replit.com/~)  // replit <br>
+https://www.geeksforgeeks.org/program-sudoku-generator/  // GeeksforGeeks article "Program for Sudoku Generator" <br>
 
 ### Steps:
 1. When you go to the github repository we provided, on the top right hand corner of the screen, there is a button that says "Fork". That will fork the repo to your own github and allow you to work on the project by adding your own files to the repository
