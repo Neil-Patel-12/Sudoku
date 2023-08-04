@@ -21,8 +21,7 @@
 ## Functionality & Pictures
 ...Need to add some pictures... <br>
 ![Easy_Medium_Hard](https://github.com/Neil-Patel-12/Sudoku-team-15/assets/108227267/fd85780b-0b12-4eef-8a2b-f945ace2979e) <br>
-
-
+![The_ReSet_button](https://github.com/Neil-Patel-12/Sudoku-team-15/assets/108227267/ef5eebeb-172d-4368-aa80-cd5fd62182cd) <br>
 
 ## Conclusion
 Through this endeavor, my programming skills were put to the test, and I thoroughly enjoyed every aspect of this Sudoku project. Coding has always been a passion of mine, and this project allowed me to immerse myself in my love for problem-solving and software development.
