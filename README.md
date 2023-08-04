@@ -1,6 +1,29 @@
-# Sudoku-Project
+# Sudoku Project
 
-## Fork Repository Instructions
+## Project Overview
+- This Sudoku project in Python aimed to develop a functional Sudoku game. Working in a team 4, we implement random board generation, state checking, and visuals using PyGame. A learning opportunity to practice the programming skills we have learned this semester, by working with external libraries and improve out problem-solving skills.
+- You can watch a demo here: [https://youtu.be/HVQEtrokCx4](https://youtu.be/HVQEtrokCx4)
+
+## Project Goals
+**The primary objectives of this project were to:** <br>
+- Build a Sudoku solver in Python capable of solving puzzles with different difficulty levels.
+- Design a user-friendly interface (graphical user interfaces)  for seamless puzzle input and display.
+
+## Challenges 
+- Throughout the project, there was a small learning curve in using the pygame module and how to implement the functionality of adding notes and removing those notes to change those cells to the correct value.
+
+## Learning Outcomes
+**The project provided valuable learning experiences, including:** <br>
+- Improved proficiency in debugging and optimizing code for efficiency.
+- Gained insights into user interface design and user experience considerations.
+
+## Conclusion
+Through this endeavor, my programming skills were put to the test, and I thoroughly enjoyed every aspect of this Sudoku project. Coding has always been a passion of mine, and this project allowed me to immerse myself in my love for problem-solving and software development.
+
+## Some useful Links
+[https://replit.com/~](https://replit.com/~)  // replit
+https://www.geeksforgeeks.org/program-sudoku-generator/  // GeeksforGeeks article "Program for Sudoku Generator"
+
 ### Steps:
 1. When you go to the github repository we provided, on the top right hand corner of the screen, there is a button that says "Fork". That will fork the repo to your own github and allow you to work on the project by adding your own files to the repository
 
