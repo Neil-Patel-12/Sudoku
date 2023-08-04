@@ -5,7 +5,7 @@ Displays the Home (Easy, Medium, Hard), Game Won, and Game lost screen 👇 <br>
 ![main_middle_end](https://github.com/Neil-Patel-12/Sudoku-team-15/assets/108227267/40072b8c-67e2-4d01-a662-214858906576) <br>
 Using the “reset” Button to remove all notes and numbers added 👇 <br>
 ![The_ReSet_button](https://github.com/Neil-Patel-12/Sudoku-team-15/assets/108227267/ef5eebeb-172d-4368-aa80-cd5fd62182cd) <br>
-Easy mode: 30 empty cells 👇 || Medium mode: 40 empty cells 👇 || Hard mode: 50 empty cells 👇 <br>
+Easy: 30 empty cells 👇|| Medium: 40 empty cells 👇|| Hard: 50 empty cells 👇|| <br>
 ![Easy_Medium_Hard](https://github.com/Neil-Patel-12/Sudoku-team-15/assets/108227267/fd85780b-0b12-4eef-8a2b-f945ace2979e) <br>
 
 ## Project Overview
