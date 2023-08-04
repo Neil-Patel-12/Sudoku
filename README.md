@@ -19,8 +19,9 @@
 - How to commit, fork, push, and pull the working repository and make changes to code.
 
 ## Functionality & Pictures
-...Need to add some pictures...
-![Easy_Medium_Hard](https://github.com/Neil-Patel-12/Sudoku-team-15/assets/108227267/fd85780b-0b12-4eef-8a2b-f945ace2979e)
+...Need to add some pictures... <br>
+![Easy_Medium_Hard](https://github.com/Neil-Patel-12/Sudoku-team-15/assets/108227267/fd85780b-0b12-4eef-8a2b-f945ace2979e) <br>
+
 
 
 ## Conclusion
