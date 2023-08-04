@@ -1,7 +1,7 @@
 # Sudoku Project
 
 ## Project Overview
-- This Sudoku project in Python aimed to develop a functional Sudoku game. Working in a team 4, we implement random board generation, state checking, and visuals using PyGame. A learning opportunity to practice the programming skills we have learned this semester, by working with external libraries and improve out problem-solving skills.
+- This Sudoku project in Python aimed to develop a functional Sudoku game. Working in a team of 4, we implement random board generation, state checking, and visuals using PyGame. A learning opportunity to practice the programming skills we have learned this semester, by working with external libraries and improve out problem-solving skills.
 - You can watch a demo here: [https://youtu.be/HVQEtrokCx4](https://youtu.be/HVQEtrokCx4)
 
 ## Project Goals
