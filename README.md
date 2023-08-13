@@ -1,5 +1,6 @@
 # Sudoku Project
 
+You can watch a demo here: [https://youtu.be/HVQEtrokCx4](https://youtu.be/HVQEtrokCx4)
 ## Functionality & Pictures
 Displays the Home (Easy, Medium, Hard), Game Won, and Game lost screen 👇 <br>
 ![main_middle_end](https://github.com/Neil-Patel-12/Sudoku-team-15/assets/108227267/40072b8c-67e2-4d01-a662-214858906576) <br>
@@ -10,7 +11,6 @@ Easy: 30 empty cells 👇|| Medium: 40 empty cells 👇|| Hard: 50 empty cells �
 
 ## Project Overview
 - This Sudoku project in Python aimed to develop a functional Sudoku game. Working in a team of 4, we implement random board generation, state checking, and visuals using PyGame. A learning opportunity to practice the programming skills we have learned this semester, by working with external libraries and improve out problem-solving skills.
-- You can watch a demo here: [https://youtu.be/HVQEtrokCx4](https://youtu.be/HVQEtrokCx4)
 
 ## Project Goals
 **The primary objectives of this project were to:** <br>
